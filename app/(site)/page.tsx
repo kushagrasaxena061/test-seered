@@ -1,52 +1,30 @@
-import React from 'react'
-import ClientOnly from '../components/ClientOnly'
-import Container from '../components/Container'
-import EmptyState from '../components/EmptyState'
-import getListings, { IListingsParams} from "@/app/actions/getListings";
-import ListingCard from "../components/listings/ListingCard"
-import getCurrentUser from '../actions/getCurrentUser';
+'use client'
+
+import Hero from "./components/Hero/Hero";
+import { useSession } from "next-auth/react"
+import { useRouter } from 'next/navigation'
+import Categories from '@/app/components/navbar/Categories'
 
 
-interface HomeProps {
-  searchParams: IListingsParams
-};
-
-const Home = async ({ searchParams }: HomeProps) => {
-  const listings = await getListings(searchParams)
-  const currentUser = await getCurrentUser()
-
-
-  if (listings.length === 0) {
+const Home = () => {
+  const { data: session, status } = useSession()
+  const router = useRouter()
+  if (status === 'authenticated'){
+    router.push('/main')
+   
+  }
+  if (status==="loading"){
+    return (
+      <div className="text-3xl font-bold text-white">Loading...</div>
+    )
+  }
+  if (status==="unauthenticated"){
+    router.push('/')
     return(
-      <ClientOnly>
-        <EmptyState showReset />
-      </ClientOnly>
+      <Hero/>
     )
   }
 
-
-  return (
-    <div>
-      <ClientOnly>
-        <Container>
-        <div 
-          className=" pt-24 grid  grid-cols-1  sm:grid-cols-2  md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
-          {listings.map((listing:any) =>{
-            return(
-              <div>
-                <ListingCard
-                  currentUser={currentUser}
-                  key={listing.id}
-                  data={listing}
-                />
-              </div>
-            )
-          })}
-        </div>
-        </Container>
-      </ClientOnly>
-    </div>
-  )
 }
 
-export default Home
+export default Home;

@@ -48,12 +48,12 @@ const Input: React.FC<InputProps> = ({
         placeholder=" "
         type={type}
         className={`
-          peer
+          peer border-black
           w-full
           p-4
           pt-6 
           font-light 
-          bg-white 
+          bg-neutral-800 
           border-2
           rounded-md
           outline-none

@@ -66,7 +66,7 @@ const RegisterModal= () => {
         title="Welcome to Airbnb"
         subtitle="Create an account!"
       />
-      <Input
+      <Input 
         id="email"
         label="Email"
         disabled={isLoading}
@@ -111,7 +111,7 @@ const RegisterModal= () => {
       />
       <div 
         className="
-          text-neutral-500 
+          text-gray-300 
           text-center 
           mt-4 
           font-light
@@ -121,7 +121,7 @@ const RegisterModal= () => {
           <span 
             onClick={onToggle} 
             className="
-              text-neutral-800
+              text-white
               cursor-pointer 
               hover:underline
             "

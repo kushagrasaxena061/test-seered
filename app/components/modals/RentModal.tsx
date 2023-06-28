@@ -331,7 +331,7 @@ const RentModal = () => {
         />
         <hr/>
         <Input
-          id="secondary_genre"
+          id="secondarygenre"
           label="Secondary Genre"
           disabled={isLoading}
           register={register}
@@ -377,7 +377,7 @@ const RentModal = () => {
         />
         <hr/>
         <Input
-          id="release_date"
+          id="releasing_date"
           label="Release Date"
           disabled={isLoading}
           register={register}

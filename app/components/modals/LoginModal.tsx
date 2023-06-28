@@ -109,12 +109,12 @@ const LoginModal = () => {
         onClick={() => signIn('github')}
       />
       <div className="
-      text-neutral-500 text-center mt-4 font-light">
+      text-gray-300 text-center mt-4 font-light">
         <p>First time using Airbnb?
           <span 
             onClick={onToggle} 
             className="
-              text-neutral-800
+              text-white
               cursor-pointer 
               hover:underline
             "

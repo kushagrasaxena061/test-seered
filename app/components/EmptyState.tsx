@@ -26,7 +26,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
         flex-col 
         gap-2 
         justify-center 
-        items-center 
+        items-center text-white
       "
     >
       <Heading
@@ -39,7 +39,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
           <Button
             outline
             label="Remove all filters"
-            onClick={() => router.push('/')}
+            onClick={() => router.push('/main')}
           />
         )}
       </div>

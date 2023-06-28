@@ -48,7 +48,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
     <div 
       onClick={() => router.push(`/listings/${data.id}`)} 
       className="col-span-1 cursor-pointer group">
-      <div className="flex flex-col gap-2 w-full">
+      <div className="flex flex-col gap-2 w-full ">
         <div 
           className="
             aspect-square 
@@ -69,14 +69,14 @@ const ListingCard: React.FC<ListingCardProps> = ({
             />
           </div>
         </div>
-        <div className="font-semibold text-lg">
-          {data.playlist}, {data.title}
+        <div className="font-bold text-sm flex text-white">
+          {data.title}
         </div>
-        <div className="font-light text-neutral-500">
-          {data.category}
+        <div className="font-semibold text-sm flex text-gray-200">
+          {data.playlist}
         </div>
-        <div className="flex flex-row items-center gap-1">
-            <div className="font-light">{data.copywrite_holder}</div>
+        <div className="font-sm text-gray-400">
+          {data.copywrite_holder}
         </div>
         {onAction && actionLabel && (
           <Button
